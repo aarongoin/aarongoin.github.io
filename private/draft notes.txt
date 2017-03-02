@@ -1,0 +1,29 @@
+My github static page:
+
+Details my work and projects.
+
+Professional work and articles
+
+design skillzzzzzz
+
+
+My site should:
+convince visitors of my dev skills
+display my work (dev and other)
+share things I like and find useful or deep (articles)
+make it easy to contact me (email and twitter)
+share what I’m up to
+
+
+AARON GOIN
+
+my work:
+ project title | associated posts
+ about         | docs & misc
+
+
+contact
+
+
+scripting:
+sticky sideways menu
