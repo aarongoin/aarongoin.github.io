@@ -12,6 +12,7 @@ window.raf = (function(){
 (function(){
 	var	posts = document.getElementsByClassName('expand'),
 		frame = document.createElement('iframe'),
+		title = document.getElementById('title'),
 		expanded,
 		more,
 		i,
@@ -21,6 +22,7 @@ window.raf = (function(){
 
 		handleScroll = function() {
 			windowOffset = window.pageYOffset || (html.clientHeight ? html : document.body).scrollTop;
+			title.style.top = windowOffset + 'px';
 		},
 
 		handleResize = function() {

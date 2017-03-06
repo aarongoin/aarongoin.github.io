@@ -18,6 +18,13 @@ body {
 	background: #fff;
 }
 
+@media only screen and (max-device-width: 520px) {
+	html {
+		font-size: 2rem;
+		width: 100%;
+	}
+}
+
 header {
 	height: 3rem;
 }
