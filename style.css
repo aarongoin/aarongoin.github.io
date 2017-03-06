@@ -225,7 +225,6 @@ article > p {
 }
 
 article > div {
-	width: 100%;
 	min-height: 3rem;
 	position: relative;
 }
