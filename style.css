@@ -40,13 +40,13 @@ body:before {
 		font-size: 2rem;
 	}
 	article {
-		width: 100%;
+		width: 100vw;
 	}
 	#title {
-		width: 100%;
+		width: 100vw;
 	}
 	body > div {
-		width: 100%
+		width: 100vw;
 	}
 }
 
