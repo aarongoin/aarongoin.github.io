@@ -38,6 +38,7 @@ body:before {
 @media only screen and (max-device-width: 520px) {
 	html {
 		font-size: 2rem;
+		max-width: 980px;
 	}
 	article {
 		width: 98%;
