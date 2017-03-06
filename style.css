@@ -36,6 +36,9 @@ body:before {
 
 /* small form */
 @media only screen and (max-device-width: 520px) {
+	html {
+		font-size: 2rem;
+	}
 	article {
 		width: 100%;
 	}
