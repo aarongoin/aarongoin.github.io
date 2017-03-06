@@ -18,22 +18,6 @@ body {
 	background: #fff;
 }
 
-body:before {
-	content: "";
-	display: block;
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	z-index: -10;
-	background: url('/img/bg-low.jpg') no-repeat center center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
-
 /* small form */
 @media only screen and (max-device-width: 520px) {
 	html {
@@ -49,10 +33,25 @@ body:before {
 	body > div {
 		width: 100%;
 	}
+	body:before {
+		content: "";
+		display: block;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -10;
+		background: url('/img/bg-mobile.jpg') no-repeat center center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
 }
 
 /* large form */
-@media only screen and (min-device-width: 521px) {
+@media only screen and (min-device-width: 521px) and (max-width: 1599px) {
 	article {
 		max-width: 50rem;
 	}
@@ -61,6 +60,48 @@ body:before {
 	}
 	body > div {
 		max-width: 50rem;
+	}
+	body:before {
+		content: "";
+		display: block;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -10;
+		background: url('/img/bg-tablet.jpg') no-repeat center center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+}
+
+@media only screen and (min-width: 1600px) {
+	article {
+		max-width: 50rem;
+	}
+	#title {
+		max-width: 50rem;
+	}
+	body > div {
+		max-width: 50rem;
+	}
+	body:before {
+		content: "";
+		display: block;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -10;
+		background: url('/img/bg-low.jpg') no-repeat center center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
 	}
 }
 
