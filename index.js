@@ -115,15 +115,20 @@ window.raf = (function(){
     }
 
     document.getElementById('scroller').addEventListener('click', function() {
-    	var pos = {y: windowOffset},
-    		tween = new TWEEN.Tween(pos).to({y: 0}, 1000);
+    	var pos,
+    		tween;
 
-    	tween.onUpdate(scroll);
-    	tween.easing(TWEEN.Easing.Exponential.Out);
-    	tween.start();
-    	if (!isLooping) {
-    		isLooping = true;
-    		loop();
+    	if (windowOffset !== 0) {
+    		pos = {y: windowOffset};
+    		tween = new TWEEN.Tween(pos).to({y: 0}, (windowOffset > 1000) ? 1000 : windowOffset );
+
+    		tween.onUpdate(scroll);
+	    	tween.easing(TWEEN.Easing.Exponential.Out);
+	    	tween.start();
+	    	if (!isLooping) {
+	    		isLooping = true;
+	    		loop();
+	    	}
     	}
     });
 
