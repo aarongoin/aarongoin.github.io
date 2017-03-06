@@ -132,10 +132,4 @@ window.raf = (function(){
     	}
     });
 
-
-    // size background image to fit mobile properly as the css vh and vw units are not trustworthy.
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
- 		document.body.style.backgroundSize = 'auto ' + html.clientHeight + 'px';
-	}
-
 })();
