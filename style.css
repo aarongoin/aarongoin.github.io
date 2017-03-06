@@ -34,6 +34,32 @@ body:before {
 	background-size: cover;
 }
 
+/* small form */
+@media only screen and (max-device-width: 520px) {
+	article {
+		width: 100%;
+	}
+	#title {
+		width: 100%;
+	}
+	body > div {
+		width: 100%
+	}
+}
+
+/* large form */
+@media only screen and (min-device-width: 521px) {
+	article {
+		max-width: 50rem;
+	}
+	#title {
+		max-width: 50rem;
+	}
+	body > div {
+		max-width: 50rem;
+	}
+}
+
 header {
 	height: 3rem;
 }
@@ -50,7 +76,6 @@ a {
 body > div {
 	color: #fff;
 	text-align: center;
-	max-width: 50rem;
 }
 
 /********************************************************************************
@@ -77,10 +102,6 @@ h1 {
 
 h1:hover {
 	font-weight: 700;
-}
-
-#title {
-	max-width: 50rem;
 }
 
 #title p {
@@ -192,7 +213,6 @@ article {
 	padding-top: 1rem;
 	padding-left: 1.5rem;
 	padding-right: 1.5rem;
-	max-width: 50rem;
 }
 
 article > p {
