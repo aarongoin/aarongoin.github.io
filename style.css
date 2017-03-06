@@ -40,6 +40,12 @@ body:before {
 		font-size: 2rem;
 		width: 640px;
 	}
+	article {
+		max-width: 100%;
+	}
+	#title {
+		max-width: 100%;
+	}
 	body > div {
 		width: 100%;
 	}
