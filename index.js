@@ -55,7 +55,7 @@ window.raf = (function(){
 
 		collapseFrame = function() {
 			var pos = {y: frame.clientHeight},
-    		tween = new TWEEN.Tween(pos).to({y: 0}, 1000);
+    			tween = new TWEEN.Tween(pos).to({y: 0}, 1000);
 
 	    	tween.onUpdate(expand);
 	    	tween.onComplete(function() {
@@ -71,7 +71,7 @@ window.raf = (function(){
 
 		expandFrame = function() {
 			var pos = {y: 0},
-    		tween = new TWEEN.Tween(pos).to({y: frame.contentDocument.body.clientHeight + 60}, 1000);
+    			tween = new TWEEN.Tween(pos).to({y: frame.contentDocument.body.clientHeight + 60}, 1000);
 
 	    	tween.onUpdate(expand);
 	    	tween.onComplete(function() {
@@ -131,5 +131,11 @@ window.raf = (function(){
 	    	}
     	}
     });
+
+
+    // size background image to fit mobile properly as the css vh and vw units are not trustworthy.
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ 		document.body.style.backgroundSize = 'auto ' + html.clientHeight + 'px';
+	}
 
 })();
