@@ -38,21 +38,10 @@ body:before {
 @media only screen and (max-device-width: 520px) {
 	html {
 		font-size: 2rem;
-		width: 100%;
-	}
-	article {
-		width: 100%;
-	}
-	#title {
-		width: 100%;
+		width: 640px;
 	}
 	body > div {
 		width: 100%;
-	}
-	.box {
-		background-color: #fff;
-		border-top: 4px solid #ddd;
-		border-bottom: 4px solid #444;
 	}
 }
 
@@ -66,12 +55,6 @@ body:before {
 	}
 	body > div {
 		max-width: 50rem;
-	}
-	.box {
-		background-color: #fff;
-		border-top: 4px solid #ddd;
-		border-bottom: 4px solid #444;
-		box-shadow: 0 0 2rem #000;
 	}
 }
 
@@ -262,4 +245,11 @@ article > img {
 .expand:hover {
 	font-weight: 700;
 	cursor: pointer;
+}
+
+.box {
+	background-color: #fff;
+	border-top: 4px solid #ddd;
+	border-bottom: 4px solid #444;
+	box-shadow: 0 0 2rem #000;
 }
