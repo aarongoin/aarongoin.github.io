@@ -38,16 +38,16 @@ body:before {
 @media only screen and (max-device-width: 520px) {
 	html {
 		font-size: 2rem;
-		max-width: 980px;
+		width: 100%;
 	}
 	article {
-		width: 98%;
+		width: 100%;
 	}
 	#title {
-		width: 98%;
+		width: 100%;
 	}
 	body > div {
-		width: 98%;
+		width: 100%;
 	}
 }
 
