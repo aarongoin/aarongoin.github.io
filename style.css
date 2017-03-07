@@ -140,7 +140,7 @@ h1 {
 	font-family: 'Roboto Slab', serif;
 	color: #fff;
 	font-size: 2rem;
-	font-weight: 100;
+	font-weight: 300;
 	float: left;
 	padding-left: 1rem;
 }
@@ -199,6 +199,7 @@ h1:hover {
 
 #about p {
 	color: #fff;
+	min-width: 15rem;
 	max-width: 20rem;
 	font-weight: 700;
 	margin: 0;
@@ -211,6 +212,7 @@ h1:hover {
 
 #about img {
 	width: 15rem;
+	height: 15rem;
 	margin: 1rem;
 	height: auto;
 	display: inline-block;
@@ -260,15 +262,15 @@ article {
 	padding-right: 1.5rem;
 }
 
-article > p {
+article p {
 	text-align: left;
 	text-indent: 3vw;
 	margin-bottom: 0.5rem;
 }
 
 article > div {
-	min-height: 3rem;
 	position: relative;
+	padding-bottom: 3rem;
 }
 
 article > img {

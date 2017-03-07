@@ -11,8 +11,6 @@ window.raf = (function(){
 
 (function(){
 	var	posts = document.getElementsByClassName('expand'),
-		frame = document.createElement('iframe'),
-		expanded,
 		more,
 		i,
 		isLooping = false,
@@ -21,10 +19,6 @@ window.raf = (function(){
 
 		handleScroll = function() {
 			windowOffset = window.pageYOffset || (html.clientHeight ? html : document.body).scrollTop;
-		},
-
-		handleResize = function() {
-			if (frame.parentNode) frame.style.height = (frame.contentDocument.body.clientHeight + 60) + 'px';
 		},
 
 		scroll = function() {
@@ -36,84 +30,54 @@ window.raf = (function(){
 			TWEEN.update();
 		},
 
-		expand = function() {
-			frame.style.height = this.y + 'px';
-		},
-
-		insertFrame = function() {
-			more = expanded.removeChild(expanded.children[0]);
-			more.textContent = "loading...";
-			expanded.appendChild(frame);
-			expanded.appendChild(more); // put button below the iframe
-		},
 		collapseArticle = function() {
-			expanded.removeChild(frame);
+			var expanded = this.parentNode,
+				more = expanded.lastChild;
+			// remove all child nodes
+			while (expanded.lastChild) expanded.removeChild(expanded.lastChild);
+
 			more.textContent = "more";
 			more.removeEventListener('click', collapseFrame);
 			more.addEventListener('click', expandArticle);
+
+			expanded.appendChild(more);
 		},
-
-		collapseFrame = function() {
-			var pos = {y: frame.clientHeight},
-    			tween = new TWEEN.Tween(pos).to({y: 0}, 1000);
-
-	    	tween.onUpdate(expand);
-	    	tween.onComplete(function() {
-	    		window.raf(collapseArticle);
-	    	});
-	    	tween.easing(TWEEN.Easing.Exponential.InOut);
-	    	tween.start();
-	    	if (!isLooping) {
-	    		isLooping = true;
-	    		loop();
-	    	}
-		}
-
-		expandFrame = function() {
-			var pos = {y: 0},
-    			tween = new TWEEN.Tween(pos).to({y: frame.contentDocument.body.clientHeight + 60}, 1000);
-
-	    	tween.onUpdate(expand);
-	    	tween.onComplete(function() {
-	    		window.raf(function() {
-	    			more.textContent = "less";
-	    			more.removeEventListener('click', expandArticle);
-	    			more.addEventListener('click', collapseFrame);
-	    		});
-	    	});
-	    	tween.easing(TWEEN.Easing.Exponential.InOut);
-	    	tween.start();
-	    	if (!isLooping) {
-	    		isLooping = true;
-	    		loop();
-	    	}
-		},
-
 		expandArticle = function() {
-			if (expanded && expanded.parentNode !== this) {
-				more.textContent = "more"
-			}
-			expanded = this.parentNode;
-			frame.src = this.dataset.url;
-			frame.style.height = '0px';
-			frame.style.width = '100%';
-			frame.style.borderStyle = 'none';
-			frame.onload = expandFrame;
-			window.raf(insertFrame);
+			var expanded = this.parentNode; // outer div
+			this.textContent = "loading...";
+			// request post
+			Rest('GET', this.dataset.url, 'text/html', function(html){ // on success
+				var more = expanded.removeChild(expanded.children[0]); // pull button out of div
+				more.textContent = "less";
+				more.removeEventListener('click', expandArticle);
+	    		more.addEventListener('click', collapseArticle);
+				expanded.innerHTML = html;
+				expanded.appendChild(more); // put button below the new content
+			});
+		},
+		Rest = function(message, path, type, onSuccess, onError) {
+			var request = new XMLHttpRequest();
+			request.onreadystatechange = function () {
+				if (request.readyState === XMLHttpRequest.DONE) {
+					if (request.status === 200) onSuccess(request.response);
+					else if (onError) onError(r);
+				}
+		    };
+			request.open(message, path);
+			request.responseType = type;
+			request.send();
 		};
 
+	// add post expanding behavior to all articles
 	i = posts.length;
 	while (i--) {
 		posts[i].addEventListener('click', expandArticle);
 	}
 
 	window.addEventListener('scroll', handleScroll);
-	window.addEventListener('resize', handleResize);
-
     window.onunload = function() {
     	window.removeEventListener('scroll', handleScroll);
     }
-
     document.getElementById('scroller').addEventListener('click', function() {
     	var pos,
     		tween;
