@@ -264,8 +264,8 @@ article {
 
 article p {
 	text-align: left;
-	text-indent: 3vw;
-	margin-bottom: 0.5rem;
+	text-indent: 1rem;
+	margin-bottom: 1rem;
 }
 
 article > div {
@@ -273,10 +273,26 @@ article > div {
 	padding-bottom: 3rem;
 }
 
-article > img {
+article img {
 	display: block;
-	width: 98%;
+	max-width: 98%;
 	margin: 1rem auto;
+}
+article video {
+	display: block;
+	max-width: 98%;
+	margin: 1rem auto;
+}
+
+article a {
+	color: #000;
+	text-decoration: underline;
+	font-weight: 300;
+}
+
+article a:hover {
+	text-decoration: underline;
+	font-weight: 700;
 }
 
 .expand {

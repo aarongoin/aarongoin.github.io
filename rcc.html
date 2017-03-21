@@ -1,3 +1,24 @@
 <p>
-	It’s not truly finished. There are performance optimizations to be had in tuning the code a little more precisely. And there would be a massive speed boost from using WebGL to draw all the sprites. WebGL has roughly 60-90% support worldwide, so perhaps if I find the time and inclination: I’ll implement that change.
+	It’s not truly finished--nothing is to a perfectionist. There are always performance optimizations to be had in tuning the code a little more precisely. And there would be a massive speed boost from using WebGL to draw all the sprites. WebGL has roughly 60-90% support worldwide, so perhaps if I find the time and inclination: I’ll implement that change. But for now: it's functional and runs well.
 </p>
+<p>
+	The console is most performant on Chrome, but it runs in any browser that supports HTML5 Canvas. The user defines the sprites to use by passing in an image with all the sprites inline, as well as a list of colors they wish the sprites to be prerendered in. Prerendered colors are more performant than custom colors, and on some browsers this is more readily apparent.
+</p>
+<p>
+	Hopefully you can see the demo console below. I've elected to use the default color palette (instead of passing in my own):
+</p>
+<img src="./img/rcc/colors.png"/>
+<p>
+	and am using the following spritesheet:
+</p>
+<img src="./img/rcc/sprites20.png"/>
+<p>
+	Every 40 milliseconds I'm generating 2000 random characters at random locations with random foreground and background colors and telling the console to draw them. Click on the canvas to toggle between prerendered colors and random colors. The console is currently using <span id="rcc_color">prerendered</span> colors.
+</p>
+<canvas id="rcc_canvas" width="300" height="200">
+	Your browser does not support HTML5 Canvas.
+</canvas>
+<p>
+	You can find basic documentation <a href="https://github.com/aarongoin/rogueColorConsole/blob/master/documentation.md" target="_blank">here</a>.
+</p>
+<script type="text/javascript" src="rcc_example.js"></script>

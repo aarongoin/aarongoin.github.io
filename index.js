@@ -15,6 +15,7 @@ window.raf = (function(){
 		i,
 		isLooping = false,
 		html = document.documentElement,
+		head = document.getElementsByTagName('head')[0],
 		windowOffset = window.pageYOffset || (html.clientHeight ? html : document.body).scrollTop,
 
 		handleScroll = function() {
@@ -30,6 +31,19 @@ window.raf = (function(){
 			TWEEN.update();
 		},
 
+		addScriptJustOnce = function(type, url) {
+			var scripts = head.getElementsByTagName('script'),
+				i = scripts.length;
+
+			// if script already in head then remove it
+			while (i--) if (scripts[i].src === url) head.removeChild(scripts[i]);
+
+			// append the script into the head
+			head.appendChild(document.createElement('script'));
+			head.lastChild.type = type;
+			head.lastChild.src = url;
+		},
+
 		collapseArticle = function() {
 			var expanded = this.parentNode,
 				more = expanded.lastChild;
@@ -37,7 +51,7 @@ window.raf = (function(){
 			while (expanded.lastChild) expanded.removeChild(expanded.lastChild);
 
 			more.textContent = "more";
-			more.removeEventListener('click', collapseFrame);
+			more.removeEventListener('click', collapseArticle);
 			more.addEventListener('click', expandArticle);
 
 			expanded.appendChild(more);
@@ -47,12 +61,18 @@ window.raf = (function(){
 			this.textContent = "loading...";
 			// request post
 			Rest('GET', this.dataset.url, 'text/html', function(html){ // on success
-				var more = expanded.removeChild(expanded.children[0]); // pull button out of div
+				var more = expanded.removeChild(expanded.children[0]), // pull button out of div
+					scripts, i;
 				more.textContent = "less";
 				more.removeEventListener('click', expandArticle);
 	    		more.addEventListener('click', collapseArticle);
 				expanded.innerHTML = html;
 				expanded.appendChild(more); // put button below the new content
+
+				// inject script into head
+				scripts = expanded.getElementsByTagName('script');
+				i = scripts.length;
+				while (i--) addScriptJustOnce(scripts[i].type, scripts[i].src);				
 			});
 		},
 		Rest = function(message, path, type, onSuccess, onError) {
