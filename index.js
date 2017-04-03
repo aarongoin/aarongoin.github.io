@@ -10,7 +10,7 @@ window.raf = (function(){
 })();
 
 (function(){
-	var	posts = document.getElementsByClassName('expand'),
+	var	posts = document.getElementsByClassName('fold'),
 		more,
 		i,
 		isLooping = false,
@@ -31,7 +31,7 @@ window.raf = (function(){
 			TWEEN.update();
 		},
 
-		addScriptJustOnce = function(type, url) {
+		addScriptJustOnce = function(id, type, url) {
 			var scripts = head.getElementsByTagName('script'),
 				i = scripts.length;
 
@@ -40,13 +40,16 @@ window.raf = (function(){
 
 			// append the script into the head
 			head.appendChild(document.createElement('script'));
+			head.lastChild.dataset.id = id;
 			head.lastChild.type = type;
 			head.lastChild.src = url;
 		},
 
 		collapseArticle = function() {
 			var expanded = this.parentNode,
-				more = expanded.lastChild;
+				more = expanded.lastChild,
+				id = this.dataset.url,
+				scripts;
 			// remove all child nodes
 			while (expanded.lastChild) expanded.removeChild(expanded.lastChild);
 
@@ -55,24 +58,34 @@ window.raf = (function(){
 			more.addEventListener('click', expandArticle);
 
 			expanded.appendChild(more);
+
+			// remove scripts for this article
+			scripts = head.getElementsByTagName('script');
+			i = scripts.length;
+			while (i--) {
+				if (scripts[i].dataset.id === id) head.removeChild(scripts[i]);
+			}
 		},
 		expandArticle = function() {
-			var expanded = this.parentNode; // outer div
+			var expanded = this.parentNode, // outer div
+				id = this.dataset.url;
+
 			this.textContent = "loading...";
 			// request post
-			Rest('GET', this.dataset.url, 'text/html', function(html){ // on success
+			Rest('GET', id, 'text/html', function(html){ // on success
 				var more = expanded.removeChild(expanded.children[0]), // pull button out of div
 					scripts, i;
+				html = new String(html);
 				more.textContent = "less";
 				more.removeEventListener('click', expandArticle);
 	    		more.addEventListener('click', collapseArticle);
-				expanded.innerHTML = html;
+				expanded.innerHTML = html.split('<!--FOLD-->')[1]; // only insert content beneath the fold
 				expanded.appendChild(more); // put button below the new content
 
 				// inject script into head
 				scripts = expanded.getElementsByTagName('script');
 				i = scripts.length;
-				while (i--) addScriptJustOnce(scripts[i].type, scripts[i].src);				
+				while (i--) addScriptJustOnce(id, scripts[i].type, scripts[i].src);				
 			});
 		},
 		Rest = function(message, path, type, onSuccess, onError) {

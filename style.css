@@ -42,7 +42,7 @@ body {
 		width: 100%;
 		height: 100%;
 		z-index: -10;
-		background: url('/img/bg-mobile.jpg') no-repeat center center;
+		background: url('res/index/bg-mobile.jpg') no-repeat center center;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
@@ -70,7 +70,7 @@ body {
 		width: 100%;
 		height: 100%;
 		z-index: -10;
-		background: url('/img/bg-tablet.jpg') no-repeat center center;
+		background: url('res/index/bg-tablet.jpg') no-repeat center center;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
@@ -97,7 +97,7 @@ body {
 		width: 100%;
 		height: 100%;
 		z-index: -10;
-		background: url('/img/bg-low.jpg') no-repeat center center;
+		background: url('res/index/bg-low.jpg') no-repeat center center;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
@@ -201,7 +201,7 @@ h1:hover {
 	color: #fff;
 	min-width: 15rem;
 	max-width: 20rem;
-	font-weight: 700;
+	font-weight: 600;
 	margin: 0;
 	text-indent: 0;
 	text-align: center;
@@ -295,7 +295,7 @@ article a:hover {
 	font-weight: 700;
 }
 
-.expand {
+.fold {
 	color: #000;
 	margin-right: auto;
 	margin-left: auto;
@@ -307,7 +307,7 @@ article a:hover {
 	text-decoration: underline;
 }
 
-.expand:hover {
+.fold:hover {
 	font-weight: 700;
 	cursor: pointer;
 }
