@@ -1,3 +1,11 @@
+<header>
+	<h2>rogueColorConsole</h2>
+	<span>Feb 27, 2017</span>
+</header>
+<p>
+	rogueColorConsole isn’t really a console at all, at least not in the classical sense, as it doesn’t detect user input.  It uses HTML5 Canvas to draw 2-toned sprites into a 2d user-defined or fullscreen canvas. I made this in my efforts to make an in-browser rogue like game engine. My own uses for this have changed, and the source inside the ogremage engine does not reflect this one. But I thought this was a useful thing to spin out as it’s own repository.
+</p>
+<!--FOLD-->
 <p>
 	It’s not truly finished--nothing is to a perfectionist. There are always performance optimizations to be had in tuning the code a little more precisely. And there would be a massive speed boost from using WebGL to draw all the sprites. WebGL has roughly 60-90% support worldwide, so perhaps if I find the time and inclination: I’ll implement that change. But for now: it's functional and runs well.
 </p>
@@ -7,11 +15,11 @@
 <p>
 	Hopefully you can see the demo console below. I've elected to use the default color palette (instead of passing in my own):
 </p>
-<img src="./img/rcc/colors.png"/>
+<img src="res/2017-2-27/colors.png"/>
 <p>
 	and am using the following spritesheet:
 </p>
-<img src="./img/rcc/sprites20.png"/>
+<img src="res/2017-2-27/sprites20.png"/>
 <p>
 	Every 40 milliseconds I'm generating 2000 random characters at random locations with random foreground and background colors and telling the console to draw them. Click on the canvas to toggle between prerendered colors and random colors. The console is currently using <span id="rcc_color">prerendered</span> colors.
 </p>
@@ -21,4 +29,4 @@
 <p>
 	You can find basic documentation <a href="https://github.com/aarongoin/rogueColorConsole/blob/master/documentation.md" target="_blank">here</a>.
 </p>
-<script type="text/javascript" src="rcc_example.js"></script>
+<script type="text/javascript" src="res/2017-2-27/rcc_example.js"></script>
