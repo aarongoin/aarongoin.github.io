@@ -1,0 +1,12 @@
+<header>
+	<h2>Sweetnums</h2>
+	<span>Jun 29, 2017</span>
+</header>
+<p>
+	I took a Web Data class this past semester, and teamed up with another classmate to produce Sweetnums as an assignment for that class. Sweetnums is a searchable database of Candies, Fruits, and Baked Confections scraped from Wikipedia. Scroll endlessly through pictures of results, and click on any result to see a larger image, with text detail, and Nutritional Facts pulled from the USDA nutritional facts database.
+</p>
+<!--FOLD-->
+<p>
+	Something something... python, flask, whoosh
+</p>
+<img src="res/2017-6-29/image.png"/>
