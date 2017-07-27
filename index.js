@@ -16,10 +16,14 @@ window.raf = (function(){
 		isLooping = false,
 		html = document.documentElement,
 		head = document.getElementsByTagName('head')[0],
+		header = document.getElementById('header'),
 		windowOffset = window.pageYOffset || (html.clientHeight ? html : document.body).scrollTop,
 
 		handleScroll = function() {
 			windowOffset = window.pageYOffset || (html.clientHeight ? html : document.body).scrollTop;
+			if (windowOffset >= 36) {
+				header.style.height = (36 - windowOffset) + "px";
+			}
 		},
 
 		scroll = function() {
