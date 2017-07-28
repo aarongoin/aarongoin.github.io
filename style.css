@@ -6,16 +6,25 @@
 	margin: 0 auto;
 }
 
-iframe {
-	width: 100%;
-	height: 100%;
-	background-color: #fff;
-}
-
 body {
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-size: 1.2rem;
 	background: #fff;
+}
+
+body:before {
+	content: "";
+		display: block;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -10;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
 }
 
 /* small form */
@@ -24,73 +33,37 @@ body {
 		font-size: 2rem;
 		width: 100%;
 	}
-	article {
-		max-width: 100%;
+	.box {
+		max-width: 100vw;
 	}
+
 	body > div {
 		width: 100%;
 	}
 	body:before {
-		content: "";
-		display: block;
-		position: fixed;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -10;
 		background: url('res/index/bg-mobile.jpg') no-repeat center center;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
 	}
 }
 
 /* large form */
-@media only screen and (min-device-width: 521px) and (max-width: 999px) {
+@media only screen and (min-device-width: 521px) and (max-device-width: 999px) {
 	article {
 		max-width: 50rem;
 	}
 	body:before {
-		content: "";
-		display: block;
-		position: fixed;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -10;
 		background: url('res/index/bg-tablet.jpg') no-repeat center center;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
 	}
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-device-width: 1000px) {
 	article {
 		max-width: 50rem;
 	}
 	body > div {
-		min-width: 50rem;
 		max-width: 100vw;
 	}
 	body:before {
-		content: "";
-		display: block;
-		position: fixed;
-		left: 0;
-		top: 0;
-		width: 100vw;
-		height: 100vh;
-		z-index: -10;
 		background: url('res/index/bg-low.jpg') no-repeat center center;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
 	}
 }
 
