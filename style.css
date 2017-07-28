@@ -25,6 +25,9 @@ body:before {
 		-moz-background-size: cover;
 		-o-background-size: cover;
 		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-origin: center;
 }
 
 /* small form */
@@ -41,9 +44,7 @@ body:before {
 		width: 100%;
 	}
 	body:before {
-		background: url('res/index/bg-mobile.jpg') no-repeat center center;
-		width: 100vw;
-		height: 100vh;
+		background-image: url('res/index/bg-mobile.jpg');
 	}
 }
 
@@ -53,7 +54,7 @@ body:before {
 		max-width: 50rem;
 	}
 	body:before {
-		background: url('res/index/bg-tablet.jpg') no-repeat center center;
+		background-image: url('res/index/bg-tablet.jpg');
 	}
 }
 
@@ -65,8 +66,9 @@ body:before {
 		max-width: 100vw;
 	}
 	body:before {
-		background: url('res/index/bg-low.jpg') no-repeat center center;
+		background-image: url('res/index/bg-low.jpg');
 		width: 100vw;
+		height: 100vh;
 	}
 }
 
