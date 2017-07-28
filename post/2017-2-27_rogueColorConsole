@@ -3,7 +3,7 @@
 	<span>Feb 27, 2017</span>
 </header>
 <p>
-	rogueColorConsole isn’t really a console at all, at least not in the classical sense, as it doesn’t detect user input.  It uses HTML5 Canvas to draw 2-toned sprites into a 2d user-defined or fullscreen canvas. I made this in my efforts to make an in-browser rogue like game engine. My own uses for this have changed, and the source inside the ogremage engine does not reflect this one. But I thought this was a useful thing to spin out as it’s own repository.
+	rogueColorConsole isn’t really a console at all, at least not in the classical sense, as it doesn’t detect user input.  It uses HTML5 Canvas to draw 2-toned sprites into a 2d user-defined or fullscreen canvas. I made this in my efforts to make an in-browser roguelike game engine. My own uses for this have changed, and the source inside the ogremage engine does not reflect this one. But I thought this was a useful thing to spin out as it’s own repository.
 </p>
 <!--FOLD-->
 <p>

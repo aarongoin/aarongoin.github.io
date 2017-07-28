@@ -7,6 +7,32 @@
 </p>
 <!--FOLD-->
 <p>
-	Something something... python, flask, whoosh
+	We first acquired our data from Wikipedia using their public API. We queried every stub contained within the Confections, Desserts, and Fruit categories and parsed out each Name, Image URL, Text Description, and Source URL. We saved these into a sqlite database, and then indexed them with Whoosh.
 </p>
-<img src="res/2017-6-29/image.png"/>
+<p>
+	We used Flask for our back end. Flask is a great framework that makes it easy to serve rendered Jinja2 templates using a RESTful interface.
+</p>
+<p>
+	Pulling from stubs of Wikipedia didn't provide much text content, so we thought it would be nice to emphasize the visual aspects of our data. Food is more stimulating to look at than read, so when the user searches, the pictures are front and center.
+</p>
+<img src="res/2017-6-29/image_widescreen.png"/>
+<p>
+	We implemented infinite scrolling through the results, which required client-side JavaScript that requests more results as the user scrolls. When the user scrolls close enough to the bottom of the displayed results, 6 or more results are fetched from the server. The maximum results to fetch is determined by taking the square root of the running average of network latency. So if the average network latency was 250 ms, then 15 results would be requested. You can see a video of the infinite scroll below.
+</p>
+<p>
+	When a result is clicked on: it is diplayed in a custom scrolling lightbox, as seen below.
+</p>
+<img src="res/2017-6-29/lightbox.png"/>
+<p>
+	Using a ligthbox allows us to preserve the users scroll position within the results. Besides the name and larger picture being shown, the text description for that result is shown as well.
+</p>
+<p>
+	To supplement the often-times short text description, we used USDA Food Composition Databases API to pull the nutrient composition for each result and display the breakdown below the description. In case of desserts where there is no single set of nutritional facts, we use a more generic set to give the user at least some idea.
+</p>
+<img class="small" src="res/2017-6-29/scrapers_beware.png"/>
+<p>
+	 Scraping is wonderful when the source data is kept neatly in order, but Wikipedia is not this way. Some images did not match the stub name, so for example there is an apple in the database with the image of an orange. Many stubs use the exact same image. And some had no images at all. For results with no image: we use a default image based on the category of the result. Unfortunately we didn't have the time to handle duplicated or mismatched pictures, so if you try out a few searches you will notice them.
+</p>
+<p>
+	Something else you may notice is that the images can take a long time to load. We only saved the images URLs into our database, so they actual images themselves are requested from Wikipedia directly, and many are very high resolution. I thought perhaps we could just download all the images and down-sampled the large ones to increase the speed, but this amounts to over 3 GB of images and I subsequently scrapped that improvement.
+</p>

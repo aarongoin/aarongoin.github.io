@@ -27,9 +27,6 @@ body {
 	article {
 		max-width: 100%;
 	}
-	#title {
-		max-width: 100%;
-	}
 	body > div {
 		width: 100%;
 	}
@@ -55,12 +52,6 @@ body {
 	article {
 		max-width: 50rem;
 	}
-	#title {
-		max-width: 50rem;
-	}
-	body > div {
-		max-width: 50rem;
-	}
 	body:before {
 		content: "";
 		display: block;
@@ -81,10 +72,6 @@ body {
 @media only screen and (min-width: 1000px) {
 	article {
 		max-width: 50rem;
-	}
-	#title {
-		max-width: 50rem;
-		
 	}
 	body > div {
 		min-width: 50rem;
@@ -155,6 +142,10 @@ h1 {
 
 h1:hover {
 	font-weight: 700;
+}
+
+#title {
+	max-width: 100%;
 }
 
 #title p {
@@ -365,4 +356,8 @@ article a:hover {
 	border-top: 4px solid #ddd;
 	border-bottom: 4px solid #444;
 	box-shadow: 0 0 2rem #000;
+}
+
+.small {
+	max-width: 30rem;
 }
