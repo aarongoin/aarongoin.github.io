@@ -10,7 +10,7 @@ var posts = fs.readdirSync("./post", "utf8").reverse(),
 	i = -1;
 // compile all above-fold text from every post in post directory
 while (++i < posts.length) if (posts[i] !== "YYYY-MM-DD_TEMPLATE" && posts[i] !== ".DS_Store") {
-	console.log(posts[i] + "\n");
+	console.log(posts[i]);
 
 	file = fs.readFileSync("./post/" + posts[i], "utf8");
 

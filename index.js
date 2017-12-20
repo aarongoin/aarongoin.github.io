@@ -21,8 +21,8 @@ window.raf = (function(){
 
 		handleScroll = function() {
 			windowOffset = window.pageYOffset || (html.clientHeight ? html : document.body).scrollTop;
-			if (windowOffset >= 36) {
-				header.style.height = (36 - windowOffset) + "px";
+			if (windowOffset >= 48) {
+				header.style.height = Math.max(48 - windowOffset, 48) + "px";
 			}
 		},
 
