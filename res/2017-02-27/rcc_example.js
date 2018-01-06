@@ -2,6 +2,7 @@
 "use strict";
 
 var Console = require('../lib/console'),
+    interval,
 	con,
 	example,
     randomColors = [],
@@ -18,7 +19,6 @@ while (con--) {
 example = function(){
 	var l = 2000;
 
-
 	// draw random characters to console
 	if (customColors) while(l--) con.draw(((Math.random() * con.width) >> 0), ((Math.random() * con.height) >> 0), {
 		c: ((Math.random() * 17) >> 0),
@@ -30,6 +30,11 @@ example = function(){
         f: ((Math.random() * 21) >> 0),
         b: ((Math.random() * 21) >> 0)
     });
+
+    if (!document.getElementById('rcc_example')) {
+        con.stop();
+        clearInterval(interval);
+    }
 };
 
 canvas = document.getElementById('rcc_canvas');
@@ -44,13 +49,13 @@ con = new Console({
 	canvas: canvas,
 	fullscreen: false,
 	sprites: {
-		src: 'res/2017-2-27/sprites20.png',
+		src: 'res/2017-02-27/sprites20.png',
 		count: 16,
 		width: 20,
 		height: 20
 	},
 	onReady: function() {
-		setInterval(example, 1000/25);
+		interval = setInterval(example, 1000/25);
         con.clear('#fff');
 	}
 });
@@ -422,7 +427,7 @@ Console.prototype.checkReady = function(){
 
 Console.prototype.render = function(time) {
     while ( this.blit( this.queue.pop() ) ) ;
-    this.rAF(this.render);
+    if (this.isActive) this.rAF(this.render);
 };
 
 Console.prototype.blit = function(tile) {

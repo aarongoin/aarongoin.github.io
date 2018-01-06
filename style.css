@@ -174,18 +174,6 @@ h1:hover {
 	align-items: center;
 }
 
-@media only screen and (min-width: 1200px) and (min-device-width: 1200px) {
-	#main {
-		flex-direction: row;
-		align-items: flex-start;
-
-	}
-
-	#main section {
-		margin: 5rem 1.5rem 0 1.5rem;
-	}
-}
-
 /********************************************************************************
 								ABOUT SECTION
 ********************************************************************************/
@@ -199,20 +187,6 @@ h1:hover {
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-around;
-}
-
-@media only screen and (min-width: 1200px) and (min-device-width: 1200px) {
-	#about {
-		min-width: 0;
-		max-width: inherit;
-		width: auto;
-		flex-direction: column;
-		justify-content: center;
-	}
-
-	#about p {
-		max-width: 26rem;
-	}
 }
 
 #about p {

@@ -29,4 +29,4 @@
 <p>
 	You can find basic documentation <a href="https://github.com/aarongoin/rogueColorConsole/blob/master/documentation.md" target="_blank">here</a>.
 </p>
-<script type="text/javascript" src="res/2017-02-27/rcc_example.js"></script>
+<script id="rcc_example" type="text/javascript" src="res/2017-02-27/rcc_example.js"></script>

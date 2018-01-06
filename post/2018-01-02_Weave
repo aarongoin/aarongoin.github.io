@@ -1,0 +1,17 @@
+<header>
+	<h2>Weave</h2>
+	<span>Jan 2, 2018</span>
+</header>
+<p>
+	Weave is a web application for writing novels, that started out as a <a href="" target="_blank">Vue.js</a> project in late March 2017. Before I worked on this, I had never used Vue.js before, and indeed this app was partly an effort to teach myself just what Vue could do. And for a while that was really great. Vue is a nicely polished framework, and it's easy to use. But I felt hampered by it half-way through as I kept trying to make html templates and directives work like React's JSX. And about that time I discovered <a href="" target="_blank">Preact</a>, which is a tiny open-source React clone. Preact touts itself as a drop-in replacement for React, but (at that time) came without Facebook's license (which has since been fixed), and is less than 1/14th the size. So naturally, I decided to rewrite the entire project!
+</p>
+<!--FOLD-->
+<p>
+	The rewrite didn't really take long. Vue and Preact are similar in their embrace of component-based design, and so many of my components took very little work to convert. Within a week: directives bacame JavaScript, and Templates became JSX. I continued working on this for the remainder of the summer, refactoring a couple times as I really nailed down the UI and scope of what I wanted to achieve with this project.
+</p>
+<p>
+	I had to put it down for a few months as I focused on school work and machine learning research until winter break. I've taken the last week or so to work further, but there's just not enough time to accomplish my ambitions before school begins again. There's still much I'd like to do with this app. It needs a great deal more polish and bug fixing to reach release-level stabilty--though most of the core features are usable. My goal (perhaps this next summer) is to iron out the remaining bugs, work on a desktop version that saves to the file system instead of using LocalStorage, and add cloud back-up and synchronization.
+</p>
+<p>
+	Rather than trying to tell you all about it's features, I've hosted it <a href="/weave/" target="_blank">here</a>. Check it out. There's animated gifs under the Topics section in the Help Sidebar along with some explanations on just what feature Weave provides.
+</p>
