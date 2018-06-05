@@ -35,7 +35,7 @@ window.raf = (function(){
 			TWEEN.update();
 		},
 
-		addScriptJustOnce = function(id, type, url) {
+		addScriptJustOnce = function(id, type, url, async) {
 			var scripts = head.getElementsByTagName('script'),
 				i = scripts.length;
 
@@ -47,6 +47,7 @@ window.raf = (function(){
 			head.lastChild.dataset.id = id;
 			head.lastChild.type = type;
 			head.lastChild.src = url;
+			head.lastChild.async = async;
 		},
 
 		collapseArticle = function() {
@@ -88,8 +89,8 @@ window.raf = (function(){
 
 				// inject script into head
 				scripts = expanded.getElementsByTagName('script');
-				i = scripts.length;
-				while (i--) addScriptJustOnce(id, scripts[i].type, scripts[i].src);				
+				i = -1;
+				while (++i < scripts.length) addScriptJustOnce(id, scripts[i].type, scripts[i].src, scripts[i].async);				
 			});
 		},
 		Rest = function(message, path, type, onSuccess, onError) {

@@ -6,6 +6,7 @@
 	This past semester has been a whirlwind of classes and responsibilities. But one of my more enjoyable classes was Game Design, which focused heavily on core subjects like SAT collision detection, isometric projection, pathfinding, and surprisingly: git. While the projects themselves were not strictly germane to my career, the opportunity to architect and implement applications—combined with the freely creative nature of these projects—was both rewarding and enlightening.
 </p>
 <!--FOLD-->
+<h3>Breakout</h3>
 <p>
 	The first project was to be a variation of the game: Breakout. Breakout is a very simple game, where the player controls the paddle at the bottom of the screen, and bounces a ball around the screen to break the rows of bricks at the top. I decided to re-imagine Breakout in space, where you control a paddle around the sun, and can bounce the ball with your paddle to destroy asteroids in the surrounding belts. There are 9 levels which can be selected from the title screen using the number keys. Each level has a different configuration of belts and asteroids, and you’ll see some types of asteroids require multiple hits to destroy.
 </p>
@@ -13,6 +14,7 @@
 <p>
 	Feel free to <a href="res/2017-12-09/Breakout.jar" target="_blank" download>download</a> it and try it out.**Requires Java v1.8 installed on either Mac OS X, Windows, or Linux. If you encounter a bug: email me about it.
 </p>
+<h3>Sub.Mission</h3>
 <p>
 	The second project assigned was fairly open, with the stipulation that whatever game we make should be as complex as Pac-Man, with enemy pathfinding, and multiple levels. I pitched my idea: Sub.Mission (a pun suggested by a friend of mine) where you control a submarine trying to accomplish one of two missions. It is a 2d game, with pseudo-3d gameplay. Use your mouse to play, navigate the map by setting your depth, speed, bearing, and use your towed sonar-array, torpedoes, and torpedo-decoys to accomplish your mission and win the game.
 </p>

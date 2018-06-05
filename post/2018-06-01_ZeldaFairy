@@ -1,0 +1,37 @@
+<header>
+	<h2>Zelda Fairy</h2>
+	<span>Jun 1, 2018</span>
+</header>
+<p>
+	In February, I completed a small ReactJS coding challenge as part of a job application. Their challenge was rather simple: Create a blinking light component that accepted it's color and lit state as props. They encouraged a little creativity, so naturally I went all out. Because, why not? I could have met the bare requirements in a minute, but I took an hour or so instead to craft something unique. It's been a few months now, so I feel safe in sharing this publicly.
+</p>
+<!--FOLD-->
+<div id="fairy_mount_point"></div>
+<p>
+	Say hello to Navi! If you can't immediately tell, it's a fairy. And more specifically it's a fairy from <a href="https://en.wikipedia.org/wiki/The_Legend_of_Zelda" target="_blank">The Legend of Zelda</a> games. And she might be just as annoying as the original. The hiring manager seemed like a gamer, so I thought I'd try to win some brownie points with a nod to a classic game series. He didn't bite. Either that or I'll be getting a call any day now. ;) Anyway. The fairy is colored blue here (the actual challenge used red), and it appears and disappears according to the lit property (which I have set on a random timer). Let's take a deeper look into what makes her tick.
+</p>
+<p>
+	The fairy component relies on several web technologies to function: The first is React for handling state and rendering the fairy itself. This was part of the requirements for the challenge, but React is something I enjoy using anyway. The second is SVG elements, bringing the fairy's wings to life using the Path element. Each wing is the same path, but scaled and positioned differently. The third is CSS Transitions & Animations for buttery smooth animations. And last is CSS Gradients, which are very effective in creating a body that looks like a ball of light.
+</p>
+<h3>Animation & React</h3>
+<p>
+	React is great for creating our views, but it poses known challenges when it comes to animating. React encourages users to lift the state up the component tree, and to make HTML Input elements controlled components with React being the "single source of truth" as far as the DOM's concerned. This works really well for application components, input components, and general interface elements, but it falls short for animations. Animations really set an application apart, and can go a long way in improving user experience and on-boarding new users. Currently, and for the foreseeable future CSS Animations are the most performant way to animate in the web browser, though animation with JavaScript will still be useful when CSS just can't cut it.
+</p>
+<p>
+	So how do I resolve the conflict between React holding our application state and CSS holding our animations? Well there's several strategies. For general UI animations, hover effects, telescoping boxes, etc., I lean towards CSS classes that React can set and forget. But when the animation needs to be more dynamic: I use React to render the "keyframes" of my animation and define CSS transitions that will interpolate between them. For example, the fairy's wings are flapping at a constant rate, and I use React to manage the rotation angle for the wings. Rather than interpolate along the full range of the flapping motion: I set the angle I want the wing to rotate to using React's setState(), and rely on CSS Transitions and Animations to take care of the rest. This helps to limit excessive rerendering of the Fairy component, and updates to the DOM that would follow.
+</p>
+<h3>Fairy Behaviors</h3>
+<p>
+	When I designed the fairy, I imagined four general behaviors I wanted it to exhibit: It needed to be able to move to a given position on the screen, it needed to flap it's wings (it's flying after all!), it needed to flutter around it's current position in a life-like way (rather than stay static in one position), and it also needed to be able to flicker it's body light. Once I had defined the behavior, I create methods on the Fairy component that when called would set the state according to the behavior, and trigger the appropriate animation(s).
+</p>
+<p>
+	In several of the Zelda games, you have a fairy as your companion. It helps you throughout the adventure, and will talk to you and teach you. I made my fairy speak a message which changes when you mouse over the fairy, and which changes position to stay unblocked by the fairy or the bounds of the screen.
+<p>
+	Having the base fairy drawn, and some dynamic behavior methods, I then worked to make the fairy interactive. In the Zelda games: fairies are little creatures you want to catch (when they're not your companion) because they give you health, and they are quick and crafty. So I made the fairy attempt to flee to a random place on the screen when the user mouses over it. If the user can successfully click the fairy, it will flicker rapidly to signal its' distress.
+</p>
+<p>
+	Maybe I went overboard on the coding challenge, but I enjoy challenging myself. Personally I think the fairy turned out really nice, and while it's not very useful (except maybe as an office assistant that could help you while writing...) it has a lot of the elements that make for great design: It's dynamic, performant, and creative, and fun to interact with. You can get the code <a href="res/2018-06-01/zelda_fairy.js" target="_blank">here</a>.
+</p>
+<script crossorigin type="text/javascript" src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script async crossorigin type="text/javascript" src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script id="zelda_fairy" type="text/javascript" src="res/2018-06-01/zelda_fairy_nojsx.js"></script>
