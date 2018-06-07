@@ -32,6 +32,4 @@
 <p>
 	Maybe I went overboard on the coding challenge, but I enjoy challenging myself. Personally I think the fairy turned out really nice, and while it's not very useful (except maybe as an office assistant that could help you while writing...) it has a lot of the elements that make for great design: It's dynamic, performant, and creative, and fun to interact with. You can get the code <a href="res/2018-06-01/zelda_fairy.js" target="_blank">here</a>.
 </p>
-<script crossorigin type="text/javascript" src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script async crossorigin type="text/javascript" src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 <script id="zelda_fairy" type="text/javascript" src="res/2018-06-01/zelda_fairy_nojsx.js"></script>
